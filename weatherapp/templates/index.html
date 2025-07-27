@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
+        rel="stylesheet"/>
+</head>
+<body>
+    <div class="container">
+    <h1>Weather App</h1>
+    </div>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="" placeholder="Enter city" required>
+        <button type="submit">search</button>
+    </form>
+    <div class="weather">
+      <div class="left">
+        <h2>Weather in {{ city }}</h2>
+            <p>Temperature: {{temp }}°C</p>
+ </div>
+ <div class="right">
+         <div class="icon">
+           <p> <img src="http://openweathermap.org/img/wn/{{ icon }}.png" alt="Weather Icon" width="100px"></p>
+            </div>
+            <div class="description">
+            <p>{{ description }}</p>
+            <p>{{ day }}</p>
+         </div>
+</div>
+    </body>
+</html>
